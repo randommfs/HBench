@@ -1,23 +1,6 @@
 <div align="center">
     <h1>HBench</h1>
     <p>Small library for benchmarking your code</p>
-    <p>
-        <a href="https://github.com/randommfs/HBench/graphs/contributors">
-            <img src="https://img.shields.io/github/contributors/HyperWinX/HBench" alt="contributors"/>
-        </a>
-        <a href="https://github.com/randommfs/HBench/commits/master">
-            <img src="https://img.shields.io/github/last-commit/HyperWinX/HBench" alt="last commit"/>
-        </a>
-        <a href="https://github.com/randommfs/HBench/network/members">
-            <img src="https://img.shields.io/github/forks/randommfs/HBench" alt="forks"/>
-        </a>
-        <a href="https://github.com/randommfs/HBench/stargazers">
-            <img src="https://img.shields.io/github/stars/randommfs/HBench" alt="contributors"/>
-        </a>
-        <a href="https://github.com/randommfs/HBench/issues">
-            <img src="https://img.shields.io/github/issues/randommfs/HBench" alt="contributors"/>
-        </a>
-    </p>
 </div>
 <br/>
 
