@@ -16,6 +16,7 @@ void bench2() { BENCH_SLOT(2, long_func2()); }
 
 int main() {
   BENCH(long_func1());
+  BENCH_AVG(long_func1(), 5);
   BENCHN(long_func1(), "Bench 1");
   ALLOCATE_SLOTS(5);
   SET_SLOT_NAME(1, "Bench1");
