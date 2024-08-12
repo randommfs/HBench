@@ -157,6 +157,28 @@ void _print_time(int slot, std::chrono::time_point<s_clock> &_s,
   _hbench_internal::_end = _hbench_internal::s_clock::now();                   \
   _hbench_internal::_print_time_n(name, _hbench_internal::_format_time());
 
+#define BENCHN_AVG(statement, name, iterations)                                \
+  {                                                                            \
+    std::chrono::time_point<_hbench_internal::s_clock> _starts[iterations],    \
+        _ends[iterations];                                                     \
+    _hbench_internal::_report_start_n(name);                                   \
+    for (size_t i = 0; i < iterations; ++i) {                                  \
+      _starts[i] = _hbench_internal::s_clock::now();                           \
+      statement;                                                               \
+      _ends[i] = _hbench_internal::s_clock::now();                             \
+    }                                                                          \
+    size_t avg[iterations];                                                    \
+    for (size_t i = 0; i < iterations; ++i) {                                  \
+      avg[i] = std::chrono::duration_cast<std::chrono::milliseconds>(          \
+                   _ends[i] - _starts[i])                                      \
+                   .count();                                                   \
+    }                                                                          \
+    size_t avg_time =                                                          \
+        std::accumulate(std::begin(avg), std::end(avg), 1) / iterations;       \
+    _hbench_internal::_print_time_n(name,                                      \
+                                    _hbench_internal::_format_time(avg_time)); \
+  }
+
 #define SET_SLOT_NAME(slot, namestr)                                           \
   static_assert(std::is_integral_v<decltype(slot)>);                           \
   _hbench_internal::_entries[slot - 1].name = namestr;
